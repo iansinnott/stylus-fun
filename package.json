@@ -1,10 +1,11 @@
 {
-  "name": "stylus-test",
+  "name": "stylus-fun",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.styl",
   "license": "MIT",
   "scripts": {
-    "start": "stylus -w"
+    "start": "stylus -w",
+    "build": "stylus"
   },
   "devDependencies": {
     "stylus": "^0.54.5"
