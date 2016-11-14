@@ -1,0 +1,8 @@
+transition(props = transform, duration = 0.8s, easing = cubic-bezier(0, 0, 0.25, 1))
+  t = ()
+  for p in props
+    push(t, join(' ', p duration easing))
+  transition unquote(join(', ', t))
+
+.bleh
+  transition(opacity transform)
