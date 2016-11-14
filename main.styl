@@ -1,8 +1,25 @@
-transition(props = transform, duration = 0.8s, easing = cubic-bezier(0, 0, 0.25, 1))
+// Just an alias for transition that allows specifying multiple properties up
+// front and having them share the same duration and easing. I chose the name
+// tween simply because that's what transitions do, and I wasn't sure how to
+// write this in such a way that it would remain functional using standard CSS
+// `transition` syntax
+tween(props = transform, duration = 0.8s, easing = cubic-bezier(0, 0, 0.25, 1))
   t = ()
   for p in props
     push(t, join(' ', p duration easing))
   transition unquote(join(', ', t))
 
-.bleh
-  transition(opacity transform)
+.sensible-defaults
+  tween()
+
+.just-the-props
+  tween opacity transform
+
+.some-args
+  tween opacity transform, 0.2s
+
+.all-args
+  tween opacity transform, 0.2s, ease
+
+// .standard
+//   transition opacity 0.2s cubic-bezier(0, 0, 0.25, 1), transform 0.8s ease-in-out
